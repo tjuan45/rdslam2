@@ -1,0 +1,11 @@
+<launch>
+    <include file="$(find openni_launch)/launch/openni.launch" />
+    <!-- My Package launch file -->
+    <node pkg="rdslam2" type="nodo_PP" name="nodo_PP" output="screen">
+    </node>
+    <include file="$(find pointcloud_to_laserscan)/launch/sample_node.launch" />
+    <include file="$(find rdslam2)/launch/detection.launch" />
+    <include file="$(find rdslam2)/launch/segmentation.launch" />
+    <include file="$(find rdslam2)/launch/reconstruction.launch" />
+    <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find rdslam2)/include/rechv2/rdslam2.rviz" />	
+</launch>

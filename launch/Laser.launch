@@ -1,0 +1,8 @@
+<launch>
+    <include file="$(find openni_launch)/launch/openni.launch" />
+    <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+    <!-- My Package launch file -->
+    <node pkg="rdslam2" type="nodo_PP" name="nodo_PP" output="screen">
+    </node>
+    <include file="$(find pointcloud_to_laserscan)/launch/sample_node.launch" />
+</launch>
